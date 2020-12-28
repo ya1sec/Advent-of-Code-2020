@@ -1,4 +1,4 @@
-fn = "input.txt"
+fn = "ex7.txt"
 dat = [x for x in open(fn).read().split("\n")]
 
 #p1
@@ -17,6 +17,8 @@ def p1(dat):
             if b[0] and b[1] in ru[4:-1]:
                 second.append(r)
     s = len(list(set(second)))
+    print(sgb)
+    print(second)
     return(s + len(sgb))
 
 print(p1(dat))
