@@ -1,4 +1,4 @@
-fn = "ex2.txt"
+fn = "input.txt"
 dat = open(fn).read().split(".\n")
 dat.remove(dat[-1])
 
