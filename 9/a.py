@@ -1,18 +1,20 @@
 import itertools as it
-fn = "input.txt"
+fn = "ex1.txt"
 dat = [x for x in open(fn).read().split("\n")]
 dat.remove(dat[-1])
 dat = [int(x) for x in dat]
 
-preamble = 25
+preamble = 5
+inv = 127
 
 # Part 1
 def checkNum(pos):
-    global dat 
+    global dat
     startpos = pos - preamble
     combs = [lst for lst in it.combinations(dat[startpos:pos], 2)]
     # create list of unique combinations of numbers
     sums = [sum(i) for i in combs]
+    print(f'sums: {sums} combos: {combs}')
     if dat[pos] in sums:
         checkNum(pos + 1)
     else:
@@ -21,6 +23,8 @@ def checkNum(pos):
 
 checkNum(preamble)
 
+
+# Part 2
 
 
 

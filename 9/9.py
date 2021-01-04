@@ -1,3 +1,98 @@
+import itertools as it
+fn = "input.txt"
+dat = [x for x in open(fn).read().split("\n")]
+dat.remove(dat[-1])
+dat = [int(x) for x in dat]
+
+
+def p1(c, i):
+    index = 0
+    res = False
+    for n1 in c:
+        c.pop(index)
+        for n2 in c:
+            if n1 + n2 == i:
+                res = True
+        c.insert(index, n1)
+        index += 1
+    return res
+
+def main(dat, p):
+    s = 0
+    e = 5
+    while e < (len(dat)):
+        i = dat[e]
+        c = dat[s:e]
+        if p1(c, i) is False:
+            return i
+        else:
+            s += 1
+            e += 1
+
+def p2(dat, t):
+    for li, v in enumerate(dat):
+        nums = [v]
+        total = v
+        ri = li + 1
+        while total < t:
+            total += dat[ri]
+            nums.append(dat[ri])
+            if total == t:
+                return sorted(nums)[0] + sorted(nums)[-1]
+            ri += 1
+
+print(p2(dat, 31161678))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7,6 +102,65 @@
 
 
 '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def findPairs(p, x):
     return [pair for pair in it.combinations(p, 2) if sum(pair) == x]
@@ -140,43 +294,3 @@ for x in dat:
     print(x)
     print("x=" + str(x) + " r2=" + str(r2) + " datr2=" + str(dat[r2]))
 '''
-
-def p1(i_list, i):
-    index = 0
-    result = False
-    for num_1 in i_list:
-        i_list.pop(index)
-    for num_2 in i_list:
-        if num_1 + num_2 == i:
-            result = True
-            i_list.insert(index, num_1)
-            index += 1
-    return result
-
-def main(data, preamble):
-    start_index = 0
-    end_index = 25
-    while end_index < (len(data)):
-        i = data[end_index]
-        i_list = data[start_index:end_index]
-    if p1(i_list, i) is False:
-        return i
-    else:
-        start_index += 1
-        end_index += 1
-
-def p2(data, target):
-    for l_idx,v in enumerate(data):
-        num_list = [v]
-        total = v
-        r_idx = l_idx + 1
-    while total < target:
-        total += data[r_idx]
-        num_list.append(data[r_idx])
-    if total == target:
-        return sorted(num_list)[0] + sorted(num_list)[-1]
-        r_idx += 1
-
-if __name__ == '__main__':
-    print('The solution to part 1 is : {}'.format(main(data, 25)))
-    print('The solution to part 2 is : {}'.format(p2(data, main(data, 25))))
